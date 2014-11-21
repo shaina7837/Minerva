@@ -1,0 +1,20 @@
+<div class ="center-piece">
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @note.title %>
+</h1>
+
+<p>
+  <%= @note.content %>
+</p>
+
+<p>
+  <strong>Notebook:</strong>
+  <%= @note.notebook.name %>
+</p>
+
+<%= link_to 'Edit', edit_note_path(@note) %> |
+<%= link_to 'Back', notes_path %>
+
+</div>

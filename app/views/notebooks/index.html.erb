@@ -1,0 +1,28 @@
+<% if user_signed_in? %>
+
+<div class="center">
+<div class="page">
+
+<h1> Notebooks</h1>
+    <div class="notebooks">
+    <% @notebooks.each do |notebook| %>
+  	<div class="notebook-box">	
+        <h2> <%= notebook.name %> </h2>
+
+        <div class="small-buttons">
+		<%= link_to 'Notes', notebook %>
+        	<%= link_to 'Edit', edit_notebook_path(notebook) %>
+        <%= link_to 'Destroy', notebook, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+	</div>
+    <% end %>
+</div>
+<br>
+<div style="clear:both"></div>
+<div class="main-button-container">
+<%= link_to 'New Notebook', new_notebook_path , :class => "main-button"%>
+</div>
+</div>
+</div>
+
+<% end %>

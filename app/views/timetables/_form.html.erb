@@ -1,0 +1,45 @@
+<div class = "new-timetable">
+<%= form_for(@timetable) do |f| %>
+  <% if @timetable.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@timetable.errors.count, "error") %> prohibited this timetable from being saved:</h2>
+
+      <ul>
+      <% @timetable.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table>
+
+<th><%= f.label :Title %></th>
+<th><%= f.label :Pick_Time %></th>
+<th><%= f.label :Description %></th>
+ 
+<tr>
+<td><%= f.text_field :name %></td>
+<td>
+<div class="input-group clockpicker" data-align="top" data-autoclose="true">
+	 <%= f.text_field :time, :class => "form-control", :id => "time-input", :value => "9:32"%>
+         <span class="input-group-addon">
+                <span class="glyphicon glyphicon-time"></span>
+         </span>
+</div>
+</td>
+<script type="text/javascript"> 
+$('.clockpicker').clockpicker()
+        .find('input').change(function(){
+                console.log(this.value);
+        });
+</script>
+<td><%= f.text_field :work %></td>
+<td><a class ="add-new" href="#">Add new</td>
+</tr>
+</table>
+<div class = "actions">
+<br>  <%= f.submit :class => "btn main-button" %>
+</div> 
+
+<% end %>
+</div>

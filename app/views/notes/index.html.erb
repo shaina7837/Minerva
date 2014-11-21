@@ -1,0 +1,24 @@
+<div class="center">
+<div class="page">
+
+<h1> Notes</h1>
+    <div class="notebooks">
+    <% @notes.each do |note| %>
+  	<div class="notebook-box">	
+        <h2> <%= note.title %> </h2>
+
+        <div class="small-buttons">
+		<%= link_to 'Show', note %>
+        	<%= link_to 'Edit', edit_note_path(note) %>
+        <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+	</div>
+    <% end %>
+</div>
+<br>
+<div style="clear:both"></div>
+<div class="main-button-container">
+<%= link_to 'New Note', new_note_path , :class => "main-button"%>
+</div>
+</div>
+</div>

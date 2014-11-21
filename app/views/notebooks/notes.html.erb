@@ -1,0 +1,20 @@
+<div class="center">
+<h1><%= @singleNotebook.name %></h1>
+<p> <%= @singleNotebook.description %> </p>
+
+    <% @show_notes.each do |note| %>
+<p>
+        <h2><%= note.title %></h2>
+        <p><%= note.content %></p>
+        
+<div class="small-buttons">
+	<td><%= link_to 'notes', note %></td>
+        <td><%= link_to 'Edit', edit_note_path(note) %></td>
+        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</div>
+</p>
+    <% end %>
+
+<%= link_to 'New Note', new_note_path ,:class => "main-button"%>
+
+</div>

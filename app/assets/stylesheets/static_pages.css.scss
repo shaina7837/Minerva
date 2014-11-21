@@ -1,0 +1,90 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/i
+
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,700,400);
+@import url(http://fonts.googleapis.com/css?family=Oswald:300,400,700);
+
+.landing-page{
+    background: image-url("bg.jpg") no-repeat center center fixed;
+    background-size:cover;
+    color:#333;
+    font-family:'open sans', sans-serif;
+    font-weight:400;
+    line-height:1.5;
+}
+
+
+.body-lamination {
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    background:rgba(255,255,255,0.7);
+    z-index:100;
+}
+
+.wrapper {
+    width:100%;
+    min-height:100%;
+    position:relative;
+    z-index:200;
+} 
+
+.main-header {
+   height:50px;
+   line-height:50px;
+   position:relative;
+   z-index:200;
+}
+
+.primary-branding {
+   font-family:'Oswald', sans-serif;
+   font-weight:100;
+   text-transform:uppercase;
+   color:rgba(0,0,0,0.5);
+   padding-left:10px;
+   letter-spacing:10px;
+   font-size:42px;
+}
+
+.center-piece {
+   position:static;
+   z-index:300;
+   max-width:500px;
+   margin:auto;
+   color:#333;
+   margin-top:10%;
+}
+
+.slogan {
+   font-weight:100;
+   text-align:center;
+   .top-slogan { font-size:24px;}
+   .main-slogan { font-size:36px; }
+   .slogan-description { font-size:18px; }
+}
+
+.big-button {
+   width:220px;
+   height:100px;
+   background:#0d8c40;
+   border:none;
+   font-size:36px;
+   line-height:100px;
+   border-radius: 5px;
+   font-family:'Oswald', sans-serif;
+   letter-spacing:4px;
+   color:#fafafa;
+   font-weight:100;
+   padding-left:10px;
+   margin-top:30px;
+   margin-left: 125px;
+   cursor: pointer;
+   text-align:center;
+   padding-right:10px;
+   text-shadow: 1px solid rgba(0,0,0,0.2);
+   &:hover { border-bottom: 5px solid #0d9c40; text-shadow: 1px 1px rgba(0,0,0,0.4); }
+}

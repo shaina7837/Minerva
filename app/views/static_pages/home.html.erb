@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Minerva</title>
+</head>
+<body class="landing-page">
+    <div class="body-lamination">
+    </div>
+
+    <div class="wrapper"> 
+        <header class="main-header">
+            <h1 class="primary-branding"> Minerva </h1>
+		<ul class="nav">
+  <li class="active"><a href="/ideas">Ideas</a></li>
+</ul>
+        </header>
+
+	<div class="center-piece">
+		<div class="slogan">
+			<div class="top-slogan"> Take your notes</div>
+			<div class="main-slogan"> anywhere and everywhere </div>
+			<div class="slogan-description"> you can take down notes anywhere with our mobile friendly, responsive design </div>
+		</div>
+		<div class="call-of-action">
+			<%= button_to "GET STARTED", new_user_registration_path, :id => "lp-get-started",
+      :class => "big-button", :method => :get %>
+		</div>
+	</div>
+    </div>
+
+
+</body>
+</html>
