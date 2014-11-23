@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :audio_notes
+
   root 'notebooks#index'
   match 'get-started', to: 'static_pages#home', via: [:get]
 #  match 'users/sign_out', to: 'static_pages#home', via: [:delete]

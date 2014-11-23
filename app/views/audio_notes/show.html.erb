@@ -1,0 +1,34 @@
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="//connect.soundcloud.com/sdk.js"></script>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @audio_note.title %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @audio_note.url %>
+</p>
+
+<p>
+  <strong>Notebook:</strong>
+  <%= @audio_note.notebook_id %>
+</p>
+
+
+	<div id="putTheWidgetHere"></div>
+<script type="text/JavaScript">
+  SC.initialize({
+    client_id: "2934c93e03d88d4ac5bda61af455c015",
+    redirect_uri: "http://localhost:3000/audio_notes/new"
+  });
+  var audio_url = "<%= @audio_note.url %>";
+  console.log(audio_url);
+  SC.oEmbed(audio_url, {color: "ff0066"},  document.getElementById("putTheWidgetHere"));
+</script>
+
+<%= link_to 'Edit', edit_audio_note_path(@audio_note) %> |
+<%= link_to 'Back', audio_notes_path %>

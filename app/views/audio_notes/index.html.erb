@@ -1,0 +1,29 @@
+<h1>Listing audio_notes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Url</th>
+      <th>Notebook</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @audio_notes.each do |audio_note| %>
+      <tr>
+        <td><%= audio_note.title %></td>
+        <td><%= audio_note.url %></td>
+        <td><%= audio_note.notebook_id %></td>
+        <td><%= link_to 'Show', audio_note %></td>
+        <td><%= link_to 'Edit', edit_audio_note_path(audio_note) %></td>
+        <td><%= link_to 'Destroy', audio_note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Audio note', new_audio_note_path %>

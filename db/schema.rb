@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117081636) do
+ActiveRecord::Schema.define(version: 20141122142627) do
+
+  create_table "audio_notes", force: true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.integer  "notebook_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "notebooks", force: true do |t|
     t.string   "name"
