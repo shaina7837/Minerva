@@ -41,6 +41,6 @@ class SchedulesController < ApplicationController
     end
 
     def schedule_params
-      params.require(:schedule).permit(:title, timeslots_attributes: [:time_from, :time_to, :note_title])
+      params.require(:schedule).permit(:title, timeslots_attributes: [:time_from, :time_to, :note_title, :schedule_id])
     end
 end
