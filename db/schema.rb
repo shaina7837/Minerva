@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141122142627) do
+ActiveRecord::Schema.define(version: 20141202094913) do
 
   create_table "audio_notes", force: true do |t|
     t.string   "title"
@@ -35,6 +35,23 @@ ActiveRecord::Schema.define(version: 20141122142627) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "schedules", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "timeslots", force: true do |t|
+    t.string   "time_form"
+    t.string   "time_to"
+    t.string   "note_title"
+    t.integer  "schedule_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "timeslots", ["schedule_id"], name: "index_timeslots_on_schedule_id"
 
   create_table "timetables", force: true do |t|
     t.string   "name"

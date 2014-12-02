@@ -40046,3 +40046,1526 @@ ActionController::RoutingError (No route matches [GET] "/javascripts/defaults.js
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-23 16:11:16 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateSchedules (20141202094752)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (37.1ms)[0m  [1mCREATE TABLE "schedules" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141202094752"]]
+  [1m[36m (113.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateTimeslots (20141202094913)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "timeslots" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "time_form" varchar(255), "time_to" varchar(255), "note_title" varchar(255), "schedule_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (0.6ms)[0m  [1mCREATE  INDEX "index_timeslots_on_schedule_id" ON "timeslots" ("schedule_id")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141202094913"]]
+  [1m[36m (127.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (14.6ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_timeslots_on_schedule_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_timeslots_on_schedule_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.4ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+
+
+Started GET "/schedules/new" for 127.0.0.1 at 2014-12-02 15:23:14 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SchedulesController#new as HTML
+Completed 500 Internal Server Error in 57ms
+
+RuntimeError (In order to use respond_with, first you need to declare the formats your controller responds to in the class level.):
+  app/controllers/schedules_controller.rb:15:in `new'
+
+
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.7ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.9ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.0ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (51.2ms)
+
+
+Started GET "/schedules/new" for 127.0.0.1 at 2014-12-02 15:23:14 +0530
+Processing by SchedulesController#new as HTML
+Completed 500 Internal Server Error in 3ms
+
+RuntimeError (In order to use respond_with, first you need to declare the formats your controller responds to in the class level.):
+  app/controllers/schedules_controller.rb:15:in `new'
+
+
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.5ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.9ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.6ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (46.7ms)
+
+
+Started GET "/schedules/new" for 127.0.0.1 at 2014-12-02 15:24:28 +0530
+Processing by SchedulesController#new as HTML
+  Rendered schedules/_form.html.erb (165.9ms)
+  Rendered schedules/new.html.erb within layouts/application (174.8ms)
+Completed 500 Internal Server Error in 5304ms
+
+ActionView::Template::Error (Asset filtered out and will not be served: add `Rails.application.config.assets.precompile += %w( cocoon.js )` to `config/initializers/assets.rb` and restart your server):
+     5:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+     6:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+     7:   <%= javascript_include_tag :defaults %>
+     8:   <%= javascript_include_tag :cocoon %>
+     9:   <%= csrf_meta_tags %>
+    10: </head>
+    11: <body>
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__1069126161_100865940'
+  app/controllers/schedules_controller.rb:16:in `new'
+
+
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.9ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (32.5ms)
+
+
+Started GET "/schedules/new" for 127.0.0.1 at 2014-12-02 15:25:29 +0530
+Processing by SchedulesController#new as HTML
+  Rendered schedules/_form.html.erb (6.0ms)
+  Rendered schedules/new.html.erb within layouts/application (8.9ms)
+Completed 500 Internal Server Error in 848ms
+
+ActionView::Template::Error (Asset filtered out and will not be served: add `Rails.application.config.assets.precompile += %w( cocoon.js )` to `config/initializers/assets.rb` and restart your server):
+     5:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+     6:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+     7:   <%= javascript_include_tag :defaults %>
+     8:   <%= javascript_include_tag :cocoon %>
+     9:   <%= csrf_meta_tags %>
+    10: </head>
+    11: <body>
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__1069126161_100865940'
+  app/controllers/schedules_controller.rb:16:in `new'
+
+
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.2ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.4ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (33.8ms)
+
+
+Started GET "/schedules/new" for 127.0.0.1 at 2014-12-02 15:25:51 +0530
+Processing by SchedulesController#new as HTML
+  Rendered schedules/_form.html.erb (4.8ms)
+  Rendered schedules/new.html.erb within layouts/application (7.7ms)
+Completed 500 Internal Server Error in 850ms
+
+ActionView::Template::Error (Asset filtered out and will not be served: add `Rails.application.config.assets.precompile += %w( cocoon.js )` to `config/initializers/assets.rb` and restart your server):
+     5:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+     6:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+     7:   <%= javascript_include_tag :defaults %>
+     8:   <%= javascript_include_tag :cocoon %>
+     9:   <%= csrf_meta_tags %>
+    10: </head>
+    11: <body>
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__1069126161_100865940'
+  app/controllers/schedules_controller.rb:16:in `new'
+
+
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.2ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.1ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (32.3ms)
+
+
+Started GET "/schedules/new" for 127.0.0.1 at 2014-12-02 15:26:33 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SchedulesController#new as HTML
+  Rendered schedules/_form.html.erb (59.9ms)
+  Rendered schedules/new.html.erb within layouts/application (71.2ms)
+Completed 500 Internal Server Error in 1382ms
+
+ActionView::Template::Error (Asset filtered out and will not be served: add `Rails.application.config.assets.precompile += %w( cocoon.js )` to `config/initializers/assets.rb` and restart your server):
+     5:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+     6:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+     7:   <%= javascript_include_tag :defaults %>
+     8:   <%= javascript_include_tag :cocoon %>
+     9:   <%= csrf_meta_tags %>
+    10: </head>
+    11: <body>
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___493300208_103748960'
+  app/controllers/schedules_controller.rb:16:in `new'
+
+
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.9ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (31.5ms)
+
+
+Started GET "/schedules/new" for 127.0.0.1 at 2014-12-02 15:27:15 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SchedulesController#new as HTML
+  Rendered schedules/_form.html.erb (58.5ms)
+  Rendered schedules/new.html.erb within layouts/application (70.3ms)
+Completed 200 OK in 1462ms (Views: 1417.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/audio_notes.css?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/javascripts/defaults.js" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+ActionController::RoutingError (No route matches [GET] "/javascripts/defaults.js"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (14.8ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (5.5ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (130.1ms)
+
+
+Started GET "/assets/notebooks.css?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/assets/bootstrap-clockpicker.css?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/assets/schedules.css?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/assets/timetables.css?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:17 +0530
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:18 +0530
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:18 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:18 +0530
+
+
+Started GET "/assets/cocoon.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:18 +0530
+
+
+Started GET "/assets/audio_notes.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:18 +0530
+
+
+Started GET "/assets/bootstrap-clockpicker.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:18 +0530
+
+
+Started GET "/assets/jquery-clockpicker.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:18 +0530
+
+
+Started GET "/assets/notebooks.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:18 +0530
+
+
+Started GET "/assets/notes.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:18 +0530
+
+
+Started GET "/assets/schedules.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:18 +0530
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:18 +0530
+
+
+Started GET "/assets/timetables.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:18 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:18 +0530
+
+
+Started POST "/schedules" for 127.0.0.1 at 2014-12-02 15:27:36 +0530
+Processing by SchedulesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UrVjyP0dMzb36oJPZxE8VDO+HPDOlMjCSjhDfh69c7A=", "schedule"=>{"title"=>""}, "commit"=>"Create Schedule"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "schedules" ("created_at", "title", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-12-02 09:57:36.632160"], ["title", ""], ["updated_at", "2014-12-02 09:57:36.632160"]]
+  [1m[35m (94.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/schedules/1
+Completed 302 Found in 160ms (ActiveRecord: 95.8ms)
+
+
+Started GET "/schedules/1" for 127.0.0.1 at 2014-12-02 15:27:36 +0530
+Processing by SchedulesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSchedule Load (0.6ms)[0m  [1mSELECT  "schedules".* FROM "schedules"  WHERE "schedules"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered schedules/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 893ms (Views: 885.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/audio_notes.css?body=1" for 127.0.0.1 at 2014-12-02 15:27:37 +0530
+
+
+Started GET "/assets/bootstrap-clockpicker.css?body=1" for 127.0.0.1 at 2014-12-02 15:27:37 +0530
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/notebooks.css?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/schedules.css?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/timetables.css?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/javascripts/defaults.js" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+ActionController::RoutingError (No route matches [GET] "/javascripts/defaults.js"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.2ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (13.1ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (7.3ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (128.7ms)
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/cocoon.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/audio_notes.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/jquery-clockpicker.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/bootstrap-clockpicker.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/notebooks.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/notes.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/timetables.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/schedules.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-02 15:27:38 +0530
+
+
+Started GET "/schedules/new" for 127.0.0.1 at 2014-12-02 15:34:32 +0530
+Processing by SchedulesController#new as HTML
+  Rendered schedules/_form.html.erb (2.7ms)
+  Rendered schedules/new.html.erb within layouts/application (4.7ms)
+Completed 500 Internal Server Error in 14ms
+
+SyntaxError (/home/shaina/new/Minerva/app/views/schedules/_form.html.erb:21: syntax error, unexpected ':'
+...d=( render 'timeslot_fields', : => timeslot );@output_buffer...
+...                               ^
+/home/shaina/new/Minerva/app/views/schedules/_form.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+/home/shaina/new/Minerva/app/views/schedules/_form.html.erb:31: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/schedules/_form.html.erb:21: syntax error, unexpected ':'
+  app/views/schedules/_form.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/schedules/_form.html.erb:31: syntax error, unexpected end-of-input, expecting keyword_end
+  app/views/schedules/new.html.erb:3:in `_app_views_schedules_new_html_erb___20778075_94586950'
+  app/controllers/schedules_controller.rb:16:in `new'
+
+
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.0ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.8ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.6ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (44.3ms)
+
+
+Started GET "/schedules/new" for 127.0.0.1 at 2014-12-02 15:34:59 +0530
+Processing by SchedulesController#new as HTML
+  Rendered schedules/_form.html.erb (2.5ms)
+  Rendered schedules/new.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 16ms
+
+SyntaxError (/home/shaina/new/Minerva/app/views/schedules/_form.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+/home/shaina/new/Minerva/app/views/schedules/_form.html.erb:31: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/schedules/_form.html.erb:29: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/schedules/_form.html.erb:31: syntax error, unexpected end-of-input, expecting keyword_end
+  app/views/schedules/new.html.erb:3:in `_app_views_schedules_new_html_erb___20778075_94586950'
+  app/controllers/schedules_controller.rb:16:in `new'
+
+
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.8ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.4ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (42.3ms)
+
+
+Started GET "/schedules/new" for 127.0.0.1 at 2014-12-02 15:35:20 +0530
+Processing by SchedulesController#new as HTML
+  Rendered schedules/_form.html.erb (36.1ms)
+  Rendered schedules/new.html.erb within layouts/application (38.4ms)
+Completed 500 Internal Server Error in 50ms
+
+ActionView::Template::Error (undefined method `simple_form_for' for #<#<Class:0xb475bc0>:0xb02f82c>):
+    1: <%= simple_form_for @schedule do |f| %>
+    2:   <% if @schedule.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+  app/views/schedules/_form.html.erb:1:in `_app_views_schedules__form_html_erb__812130462_92366330'
+  app/views/schedules/new.html.erb:3:in `_app_views_schedules_new_html_erb___20778075_94586950'
+  app/controllers/schedules_controller.rb:16:in `new'
+
+
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.1ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (31.5ms)
+
+
+Started GET "/schedules/new" for 127.0.0.1 at 2014-12-02 15:36:21 +0530
+Processing by SchedulesController#new as HTML
+  Rendered schedules/_form.html.erb (36.4ms)
+  Rendered schedules/new.html.erb within layouts/application (39.3ms)
+Completed 500 Internal Server Error in 48ms
+
+ActionView::Template::Error (undefined method `simple_fields_for' for #<ActionView::Helpers::FormBuilder:0xb146148>):
+    17:   </div>
+    18: 
+    19:   <div class="new-form">
+    20:   <%= f.simple_fields_for :timeslots do |timeslot| %>
+    21:   <%= render 'timeslot_fields', :f => timeslot %>
+    22:   <%= link_to_add_association 'Add new', f, :timeslots %>
+    23:   <% end %>
+  app/views/schedules/_form.html.erb:20:in `block in _app_views_schedules__form_html_erb__812130462_92935630'
+  app/views/schedules/_form.html.erb:1:in `_app_views_schedules__form_html_erb__812130462_92935630'
+  app/views/schedules/new.html.erb:3:in `_app_views_schedules_new_html_erb___20778075_94586950'
+  app/controllers/schedules_controller.rb:16:in `new'
+
+
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (31.2ms)
+
+
+Started GET "/schedules/new" for 127.0.0.1 at 2014-12-02 15:37:24 +0530
+Processing by SchedulesController#new as HTML
+  Rendered schedules/_timeslot_fields.html.erb (3.5ms)
+  Rendered schedules/_timeslot_fields.html.erb (7.1ms)
+  Rendered schedules/_form.html.erb (108.1ms)
+  Rendered schedules/new.html.erb within layouts/application (110.2ms)
+Completed 200 OK in 945ms (Views: 941.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/bootstrap-clockpicker.css?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/notebooks.css?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/audio_notes.css?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/timetables.css?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/schedules.css?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/cocoon.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/audio_notes.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/bootstrap-clockpicker.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/jquery-clockpicker.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/notebooks.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/schedules.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/notes.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/timetables.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+
+Started GET "/javascripts/defaults.js" for 127.0.0.1 at 2014-12-02 15:37:25 +0530
+
+ActionController::RoutingError (No route matches [GET] "/javascripts/defaults.js"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.1ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (14.7ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.3ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (139.0ms)
+
+
+Started GET "/schedules/new" for 127.0.0.1 at 2014-12-02 15:38:46 +0530
+Processing by SchedulesController#new as HTML
+  Rendered schedules/_timeslot_fields.html.erb (3.6ms)
+  Rendered schedules/_timeslot_fields.html.erb (2.9ms)
+  Rendered schedules/_form.html.erb (19.4ms)
+  Rendered schedules/new.html.erb within layouts/application (21.6ms)
+Completed 200 OK in 828ms (Views: 825.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/audio_notes.css?body=1" for 127.0.0.1 at 2014-12-02 15:38:47 +0530
+
+
+Started GET "/assets/notebooks.css?body=1" for 127.0.0.1 at 2014-12-02 15:38:47 +0530
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2014-12-02 15:38:47 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-12-02 15:38:47 +0530
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2014-12-02 15:38:47 +0530
+
+
+Started GET "/assets/bootstrap-clockpicker.css?body=1" for 127.0.0.1 at 2014-12-02 15:38:47 +0530
+
+
+Started GET "/assets/schedules.css?body=1" for 127.0.0.1 at 2014-12-02 15:38:47 +0530
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2014-12-02 15:38:47 +0530
+
+
+Started GET "/assets/timetables.css?body=1" for 127.0.0.1 at 2014-12-02 15:38:47 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-02 15:38:47 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:47 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:47 +0530
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:47 +0530
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:47 +0530
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:47 +0530
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:48 +0530
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:48 +0530
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:48 +0530
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:48 +0530
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:48 +0530
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:48 +0530
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:48 +0530
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:48 +0530
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:48 +0530
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:48 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:48 +0530
+
+
+Started GET "/assets/cocoon.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:48 +0530
+
+
+Started GET "/assets/audio_notes.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:48 +0530
+
+
+Started GET "/assets/jquery-clockpicker.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:48 +0530
+
+
+Started GET "/assets/bootstrap-clockpicker.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:48 +0530
+
+
+Started GET "/assets/notebooks.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:48 +0530
+
+
+Started GET "/assets/notes.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:48 +0530
+
+
+Started GET "/assets/schedules.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:48 +0530
+
+
+Started GET "/assets/timetables.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:48 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:48 +0530
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2014-12-02 15:38:48 +0530
+
+
+Started GET "/javascripts/defaults.js" for 127.0.0.1 at 2014-12-02 15:38:48 +0530
+
+ActionController::RoutingError (No route matches [GET] "/javascripts/defaults.js"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (14.2ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.8ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (109.6ms)
+
+
+Started GET "/schedules/new" for 127.0.0.1 at 2014-12-02 15:41:04 +0530
+Processing by SchedulesController#new as HTML
+  Rendered schedules/_timeslot_fields.html.erb (4.0ms)
+  Rendered schedules/_timeslot_fields.html.erb (7.8ms)
+  Rendered schedules/_form.html.erb (21.5ms)
+  Rendered schedules/new.html.erb within layouts/application (23.3ms)
+Completed 500 Internal Server Error in 30ms
+
+ActionView::Template::Error (undefined method `title' for #<Timeslot:0x8c4efc0>):
+    18:                 console.log(this.value);
+    19:         });
+    20: </script>
+    21: <td> <%= f.text_field :title %></td>
+    22: 
+    23: </tr>
+    24: </table>
+  app/views/schedules/_timeslot_fields.html.erb:21:in `_app_views_schedules__timeslot_fields_html_erb__265296527_73526950'
+  app/views/schedules/_form.html.erb:22:in `block (2 levels) in _app_views_schedules__form_html_erb__812130462_93575850'
+  app/views/schedules/_form.html.erb:20:in `block in _app_views_schedules__form_html_erb__812130462_93575850'
+  app/views/schedules/_form.html.erb:1:in `_app_views_schedules__form_html_erb__812130462_93575850'
+  app/views/schedules/new.html.erb:3:in `_app_views_schedules_new_html_erb___20778075_94586950'
+  app/controllers/schedules_controller.rb:16:in `new'
+
+
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.0ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (31.5ms)
+
+
+Started GET "/schedules/new" for 127.0.0.1 at 2014-12-02 15:41:29 +0530
+Processing by SchedulesController#new as HTML
+  Rendered schedules/_timeslot_fields.html.erb (3.6ms)
+  Rendered schedules/_timeslot_fields.html.erb (4.4ms)
+  Rendered schedules/_form.html.erb (25.1ms)
+  Rendered schedules/new.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 803ms (Views: 800.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/audio_notes.css?body=1" for 127.0.0.1 at 2014-12-02 15:41:30 +0530
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2014-12-02 15:41:30 +0530
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2014-12-02 15:41:30 +0530
+
+
+Started GET "/assets/notebooks.css?body=1" for 127.0.0.1 at 2014-12-02 15:41:30 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/bootstrap-clockpicker.css?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/schedules.css?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/timetables.css?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/javascripts/defaults.js" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+ActionController::RoutingError (No route matches [GET] "/javascripts/defaults.js"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (14.1ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.3ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (110.7ms)
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/cocoon.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/audio_notes.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/bootstrap-clockpicker.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/jquery-clockpicker.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/notebooks.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/notes.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/schedules.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/timetables.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-12-02 15:41:31 +0530
+
+
+Started GET "/schedules/new" for 127.0.0.1 at 2014-12-02 15:43:10 +0530
+Processing by SchedulesController#new as HTML
+  Rendered schedules/_timeslot_fields.html.erb (3.7ms)
+  Rendered schedules/_timeslot_fields.html.erb (4.9ms)
+  Rendered schedules/_form.html.erb (22.8ms)
+  Rendered schedules/new.html.erb within layouts/application (25.1ms)
+Completed 200 OK in 821ms (Views: 819.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap-clockpicker.css?body=1" for 127.0.0.1 at 2014-12-02 15:43:11 +0530
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2014-12-02 15:43:11 +0530
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2014-12-02 15:43:11 +0530
+
+
+Started GET "/assets/notebooks.css?body=1" for 127.0.0.1 at 2014-12-02 15:43:11 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-12-02 15:43:11 +0530
+
+
+Started GET "/assets/audio_notes.css?body=1" for 127.0.0.1 at 2014-12-02 15:43:11 +0530
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2014-12-02 15:43:11 +0530
+
+
+Started GET "/assets/schedules.css?body=1" for 127.0.0.1 at 2014-12-02 15:43:11 +0530
+
+
+Started GET "/assets/timetables.css?body=1" for 127.0.0.1 at 2014-12-02 15:43:11 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-02 15:43:11 +0530
+
+
+Started GET "/javascripts/defaults.js" for 127.0.0.1 at 2014-12-02 15:43:11 +0530
+
+ActionController::RoutingError (No route matches [GET] "/javascripts/defaults.js"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (14.9ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.5ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (109.2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/audio_notes.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/cocoon.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/notebooks.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/jquery-clockpicker.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/schedules.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/bootstrap-clockpicker.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/notes.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/timetables.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-12-02 15:43:12 +0530
+
+
+Started POST "/schedules" for 127.0.0.1 at 2014-12-02 15:43:45 +0530
+Processing by SchedulesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UrVjyP0dMzb36oJPZxE8VDO+HPDOlMjCSjhDfh69c7A=", "schedule"=>{"title"=>"free", "timeslots"=>{"time_from"=>"12:05", "note_title"=>"akjhfakj"}}, "commit"=>"Create Schedule"}
+Unpermitted parameters: timeslots
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schedules" ("created_at", "title", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-12-02 10:13:45.889168"], ["title", "free"], ["updated_at", "2014-12-02 10:13:45.889168"]]
+  [1m[35m (552.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/schedules/2
+Completed 302 Found in 565ms (ActiveRecord: 552.9ms)
+
+
+Started GET "/schedules/2" for 127.0.0.1 at 2014-12-02 15:43:46 +0530
+Processing by SchedulesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSchedule Load (0.3ms)[0m  [1mSELECT  "schedules".* FROM "schedules"  WHERE "schedules"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered schedules/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 796ms (Views: 792.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/bootstrap-clockpicker.css?body=1" for 127.0.0.1 at 2014-12-02 15:43:47 +0530
+
+
+Started GET "/assets/notebooks.css?body=1" for 127.0.0.1 at 2014-12-02 15:43:47 +0530
+
+
+Started GET "/assets/audio_notes.css?body=1" for 127.0.0.1 at 2014-12-02 15:43:47 +0530
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2014-12-02 15:43:47 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-12-02 15:43:47 +0530
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2014-12-02 15:43:47 +0530
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2014-12-02 15:43:47 +0530
+
+
+Started GET "/assets/timetables.css?body=1" for 127.0.0.1 at 2014-12-02 15:43:47 +0530
+
+
+Started GET "/assets/schedules.css?body=1" for 127.0.0.1 at 2014-12-02 15:43:47 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-02 15:43:47 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:47 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:47 +0530
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:47 +0530
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:47 +0530
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:47 +0530
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:47 +0530
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:47 +0530
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:47 +0530
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:47 +0530
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:47 +0530
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:47 +0530
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:47 +0530
+
+
+Started GET "/assets/cocoon.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:48 +0530
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:48 +0530
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:48 +0530
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:48 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:48 +0530
+
+
+Started GET "/assets/audio_notes.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:48 +0530
+
+
+Started GET "/assets/bootstrap-clockpicker.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:48 +0530
+
+
+Started GET "/assets/jquery-clockpicker.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:48 +0530
+
+
+Started GET "/assets/notebooks.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:48 +0530
+
+
+Started GET "/assets/notes.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:48 +0530
+
+
+Started GET "/assets/schedules.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:48 +0530
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:48 +0530
+
+
+Started GET "/assets/timetables.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:48 +0530
+
+
+Started GET "/javascripts/defaults.js" for 127.0.0.1 at 2014-12-02 15:43:48 +0530
+
+ActionController::RoutingError (No route matches [GET] "/javascripts/defaults.js"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (15.4ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.1ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (120.9ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-02 15:43:48 +0530
+
+
+Started GET "/schedules/" for 127.0.0.1 at 2014-12-02 15:44:05 +0530
+Processing by SchedulesController#index as HTML
+  [1m[35mSchedule Load (0.4ms)[0m  SELECT "schedules".* FROM "schedules"
+  Rendered schedules/index.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 830ms (Views: 827.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/bootstrap-clockpicker.css?body=1" for 127.0.0.1 at 2014-12-02 15:44:06 +0530
+
+
+Started GET "/assets/audio_notes.css?body=1" for 127.0.0.1 at 2014-12-02 15:44:06 +0530
+
+
+Started GET "/assets/custom.css?body=1" for 127.0.0.1 at 2014-12-02 15:44:06 +0530
+
+
+Started GET "/assets/notebooks.css?body=1" for 127.0.0.1 at 2014-12-02 15:44:06 +0530
+
+
+Started GET "/assets/notes.css?body=1" for 127.0.0.1 at 2014-12-02 15:44:06 +0530
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-12-02 15:44:06 +0530
+
+
+Started GET "/assets/schedules.css?body=1" for 127.0.0.1 at 2014-12-02 15:44:06 +0530
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2014-12-02 15:44:06 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:06 +0530
+
+
+Started GET "/assets/timetables.css?body=1" for 127.0.0.1 at 2014-12-02 15:44:06 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:06 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-02 15:44:06 +0530
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:06 +0530
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:06 +0530
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:06 +0530
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:06 +0530
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:07 +0530
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:07 +0530
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:07 +0530
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:07 +0530
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:07 +0530
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:07 +0530
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:07 +0530
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:07 +0530
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:07 +0530
+
+
+Started GET "/assets/cocoon.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:07 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:07 +0530
+
+
+Started GET "/assets/audio_notes.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:07 +0530
+
+
+Started GET "/assets/bootstrap-clockpicker.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:07 +0530
+
+
+Started GET "/assets/jquery-clockpicker.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:07 +0530
+
+
+Started GET "/assets/notebooks.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:07 +0530
+
+
+Started GET "/assets/notes.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:07 +0530
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:07 +0530
+
+
+Started GET "/assets/timetables.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:07 +0530
+
+
+Started GET "/assets/schedules.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:07 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-02 15:44:07 +0530
+
+
+Started GET "/javascripts/defaults.js" for 127.0.0.1 at 2014-12-02 15:44:07 +0530
+
+ActionController::RoutingError (No route matches [GET] "/javascripts/defaults.js"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/shaina/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (15.4ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.6ms)
+  Rendered /home/shaina/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (116.7ms)
+
+
+Started GET "/schedules/2/edit" for 127.0.0.1 at 2014-12-02 15:44:16 +0530
+Processing by SchedulesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSchedule Load (0.2ms)[0m  [1mSELECT  "schedules".* FROM "schedules"  WHERE "schedules"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered schedules/_timeslot_fields.html.erb (3.3ms)
+  Rendered schedules/_timeslot_fields.html.erb (4.1ms)
+  Rendered schedules/_form.html.erb (21.2ms)
+  Rendered schedules/edit.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 764ms (Views: 760.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-12-02 15:44:17 +0530

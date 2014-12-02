@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :schedules
+
   resources :audio_notes
 
   root 'notebooks#index'

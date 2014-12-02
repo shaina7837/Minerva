@@ -1,0 +1,25 @@
+<table>
+
+<th><%= f.label :Pick_Time %></th>
+<th><%= f.label :Note_title %></th>
+
+<tr>
+<td>
+<div class="input-group clockpicker" data-align="top" data-autoclose="true">
+        <%= f.text_field :time_from, :class => "form-control", :id => "time-input", :value => "9:32" %>
+        <span class="input-group-addon">
+                <span class="glyphicon glyphicon-time"></span>
+        </span>
+</div>
+<td>
+<script type="text/javascript">
+$('.clockpicker').clockpicker()
+        .find('input').change(function() {
+                console.log(this.value);
+        });
+</script>
+<td> <%= f.text_field :note_title %></td>
+
+</tr>
+</table>
+

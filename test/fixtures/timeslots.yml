@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time_form: MyString
+  time_to: MyString
+  note_title: MyString
+  schedule_id: 
+
+two:
+  time_form: MyString
+  time_to: MyString
+  note_title: MyString
+  schedule_id: 
